@@ -161,6 +161,11 @@
         "signature": "d2f31f19e1ba6ed59be9259d660a239d9a3fcbbc8e038c6b2009bde34b175fed",
         "affectsGlobalScope": false
       },
+      "../app/migrations/00_users.ts": {
+        "version": "f5da0f99b35fd9e0b3cebc5d206cb9415e9f30a30b760e495b84d5ca06259b9c",
+        "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "affectsGlobalScope": true
+      },
       "../node_modules/reflect-metadata/index.d.ts": {
         "version": "8d6d51a5118d000ed3bfe6e1dd1335bebfff3fef23cd2af2f84a24d30f90cc90",
         "signature": "8d6d51a5118d000ed3bfe6e1dd1335bebfff3fef23cd2af2f84a24d30f90cc90",
@@ -2523,6 +2528,13 @@
       "configFilePath": "../tsconfig.build.json"
     },
     "referencedMap": {
+      "../app/migrations/00_users.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
       "../node_modules/@babel/parser/typings/babel-parser.d.ts": [
         "../node_modules/@babel/types/lib/index.d.ts",
         "../node_modules/@types/graceful-fs/index.d.ts",
@@ -11413,6 +11425,7 @@
       ]
     },
     "semanticDiagnosticsPerFile": [
+      "../app/migrations/00_users.ts",
       "../node_modules/@babel/parser/typings/babel-parser.d.ts",
       "../node_modules/@babel/types/lib/index.d.ts",
       "../node_modules/@nestjs/common/cache/cache.constants.d.ts",
