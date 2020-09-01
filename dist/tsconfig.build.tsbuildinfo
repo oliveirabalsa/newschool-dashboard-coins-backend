@@ -2431,6 +2431,11 @@
         "signature": "4dda712df262b9a427ff5f5d2b9618ed19cb03603639c2cdea832e71b9ad3a4c",
         "affectsGlobalScope": false
       },
+      "../node_modules/@types/semver/index.d.ts": {
+        "version": "bb95470284971cf0cce66a339224fa5db412729bf3e22c2c02a1c343fd4444ab",
+        "signature": "bb95470284971cf0cce66a339224fa5db412729bf3e22c2c02a1c343fd4444ab",
+        "affectsGlobalScope": false
+      },
       "../node_modules/@types/source-list-map/index.d.ts": {
         "version": "67fc055eb86a0632e2e072838f889ffe1754083cb13c8c80a06a7d895d877aae",
         "signature": "67fc055eb86a0632e2e072838f889ffe1754083cb13c8c80a06a7d895d877aae",
@@ -4728,6 +4733,13 @@
         "../node_modules/@types/node/util.d.ts"
       ],
       "../node_modules/@types/range-parser/index.d.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@types/semver/index.d.ts": [
         "../node_modules/@types/graceful-fs/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -9213,6 +9225,13 @@
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts"
       ],
+      "../node_modules/@types/semver/index.d.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
       "../node_modules/@types/serve-static/index.d.ts": [
         "../node_modules/@types/express-serve-static-core/index.d.ts",
         "../node_modules/@types/graceful-fs/index.d.ts",
@@ -11641,6 +11660,7 @@
       "../node_modules/@types/prettier/index.d.ts",
       "../node_modules/@types/qs/index.d.ts",
       "../node_modules/@types/range-parser/index.d.ts",
+      "../node_modules/@types/semver/index.d.ts",
       "../node_modules/@types/serve-static/index.d.ts",
       "../node_modules/@types/source-list-map/index.d.ts",
       "../node_modules/@types/stack-utils/index.d.ts",
