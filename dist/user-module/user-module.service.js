@@ -13,6 +13,11 @@ let UserModuleService = class UserModuleService {
         const response = await connection_1.default('user').select('*');
         return response;
     }
+    async getTransactions(id, query) {
+        const response = await connection_1.default('user').where('id', id)
+            .where('id', '>=', query.start).where('id', '<=', query.end).select('*');
+        return response;
+    }
     async postUser(payload) {
         const response = await connection_1.default('user').returning('*').insert(payload);
         return response;

@@ -2,15 +2,21 @@
 /* eslint-disable class-methods-use-this */
 
 import {
-  Controller, Get, Post, Body, Put, Delete, Param,
+  Controller, Get, Post, Body, Put, Delete, Param, Query,
 } from '@nestjs/common';
-import { UserDto } from './user-module.dto';
+import { UserDto } from './DTO/user-module.dto';
 import UserModuleService from './user-module.service';
+import { query } from 'express';
 @Controller('user')
 export class UserModuleController {
   @Get()
   get() {
     return UserModuleService.getUser();
+  }
+
+  @Get('transactions/:id')
+  getTransactions(@Param() Params: any, @Query() query: any, ) {
+    return UserModuleService.getTransactions(Params.id, query);
   }
 
   @Post()
