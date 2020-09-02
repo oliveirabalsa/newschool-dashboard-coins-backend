@@ -1797,7 +1797,9 @@
         "affectsGlobalScope": false
       },
       "../src/user-module/user-module.service.ts": {
-<<<<<<< HEAD
+        "version": "f50417afacc1cb0077eccb4b5d4d40d64c77b843bf8869cf64de5163e4bcd29f",
+        "signature": "2f7b1d8673fc2e1d043eb80080d13692a634a25fc7067060c3885966233ff9db",
+
         "version": "bc5d99a5bd27abe47e0fda6259cefde006dc7dce9b211ea9be7b65959686d67b",
         "signature": "1c4a2c741177ed4ffe1e485b989fe9969a6ca0013f2ffa2880d0861fe6c881a0",
         "affectsGlobalScope": false
@@ -2040,10 +2042,8 @@
       "../node_modules/@types/babel__core/index.d.ts": {
         "version": "7df3163944694feeac63067632a8dc2e2dea1350119ec8b43df277af69198369",
         "signature": "7df3163944694feeac63067632a8dc2e2dea1350119ec8b43df277af69198369",
-=======
         "version": "01056cc71e3ba07be421a91a686a86d8d0ab3d94efdf35c16236a0daa27a8d41",
         "signature": "3adeee515f938963d82cb2b073c301f7f974cccdc096a126b9b2748604e8bb81",
->>>>>>> 46cffb4b337d92525a0b367db1c582f14def2749
         "affectsGlobalScope": false
       },
       "../node_modules/@types/node/globals.d.ts": {
@@ -2337,8 +2337,8 @@
         "affectsGlobalScope": false
       },
       "../src/user-module/user-module.controller.ts": {
-        "version": "c0fe01073358d3e03d927fa8f921b208f40c6db9dfb4c94b4c26403edbcc1715",
-        "signature": "eb66a03e3a11cca1387be91666addb27af375234bd0f64a6a311a52f9ccba0db",
+        "version": "55d040793bcc9f77d133e82a4825eca78764140e4a4eae6b1052a00fa15cfcc4",
+        "signature": "21ec54b57b93a68b4e1fdf08b79cee9c67a4cf4b6ba7822e1d232698bbd164e6",
         "affectsGlobalScope": false
       },
       "../src/user-module/user-module.module.ts": {

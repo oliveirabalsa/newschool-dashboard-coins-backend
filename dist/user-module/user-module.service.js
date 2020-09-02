@@ -18,6 +18,9 @@ let UserModuleService = class UserModuleService {
             .where('id', '>=', query.start).where('id', '<=', query.end).select('*');
         return response;
     }
+    async getMoney(id) {
+        return await connection_1.default('user').select('user.moneyQuantity').where('id', id);
+    }
     async postUser(payload) {
         const response = await connection_1.default('user').returning('*').insert(payload);
         return response;

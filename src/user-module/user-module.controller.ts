@@ -2,7 +2,14 @@
 /* eslint-disable class-methods-use-this */
 
 import {
-  Controller, Get, Post, Body, Put, Delete, Param, Query,
+  Controller,
+  Get,
+  Post,
+  Body,
+  Put,
+  Delete,
+  Param,
+  Query,
 } from '@nestjs/common';
 import { UserDto } from './DTO/user-module.dto';
 import UserModuleService from './user-module.service';
@@ -15,12 +22,12 @@ export class UserModuleController {
   }
 
   @Get('transactions/:id')
-  getTransactions(@Param() Params: any, @Query() query: any, ) {
+  getTransactions(@Param() Params: any, @Query() query: any) {
     return UserModuleService.getTransactions(Params.id, query);
   }
 
   @Get('money/:id')
-  getMoney(@Param() Params: any ) {
+  getMoney(@Param() Params: any) {
     return UserModuleService.getMoney(Params.id);
   }
 
