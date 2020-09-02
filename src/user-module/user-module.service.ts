@@ -15,18 +15,38 @@ class UserModuleService {
     return response;
   }
 
-  async getTransactions(id, query) {
+  async getTransactions(id, start, end) {
+    const response = await connection('transactions')
+      .where('user_id', id)
+      .limit(50)
+      .offset(Number(end) - Number(start))
+    return response;
+  }
+
+  async postTransactions(payload) {
+    const response = await connection('transactions')
+      .insert(payload)
+      .returning('*')
+    return response;
+  }
+
+  async putTransactions(id, payload) {
+    const response = await connection('transactions')
+      .where('id', id)
+      .update(payload);
+    return response;
+  }
+
+  async deleteTransactions(id) {
     const response = await connection('user')
       .where('id', id)
-      .where('id', '>=', query.start)
-      .where('id', '<=', query.end)
-      .select('user.transactions');
+      .delete();
     return response;
   }
   async getMoney(id) {
     return await connection('user')
       .select('user.moneyQuantity')
-      .where('id', id);  
+      .where('id', id);
   }
 
   async postUser(payload) {
@@ -43,9 +63,9 @@ class UserModuleService {
     return response;
   }
 
-  async deleteUser(payload) {
+  async deleteUser(id) {
     const response = await connection('user')
-      .where('id', payload.id)
+      .where('id', id)
       .delete();
     return response;
   }

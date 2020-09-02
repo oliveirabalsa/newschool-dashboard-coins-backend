@@ -9,32 +9,66 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const common_1 = require("@nestjs/common");
 const connection_1 = require("../database/connection");
 let UserModuleService = class UserModuleService {
-    async getUser() {
-        const response = await connection_1.default('user').select('*');
+    async getUser(page = 1) {
+        const response = await connection_1.default('user')
+            .limit(10)
+            .offset((page - 1) * 10)
+            .select('*')
+            .orderBy('id');
         return response;
     }
-    async getTransactions(id, query) {
-        const response = await connection_1.default('user').where('id', id)
-            .where('id', '>=', query.start).where('id', '<=', query.end).select('*');
+    async getTransactions(id, start, end) {
+        const response = await connection_1.default('transactions')
+            .where('user_id', id)
+            .limit(50)
+            .offset(Number(end) - Number(start));
+        return response;
+    }
+    async postTransactions(payload) {
+        const response = await connection_1.default('transactions')
+            .insert(payload)
+            .returning('*');
+        return response;
+    }
+    async putTransactions(id, payload) {
+        const response = await connection_1.default('transactions')
+            .where('id', id)
+            .update(payload);
+        return response;
+    }
+    async deleteTransactions(id) {
+        const response = await connection_1.default('user')
+            .where('id', id)
+            .delete();
         return response;
     }
     async getMoney(id) {
-        return await connection_1.default('user').select('user.moneyQuantity').where('id', id);
+        return await connection_1.default('user')
+            .select('user.moneyQuantity')
+            .where('id', id);
     }
     async postUser(payload) {
-        const response = await connection_1.default('user').returning('*').insert(payload);
+        const response = await connection_1.default('user')
+            .returning('*')
+            .insert(payload);
         return response;
     }
     async putUser(payload, id) {
-        const response = await connection_1.default('user').where('id', id).update(payload);
+        const response = await connection_1.default('user')
+            .where('id', id)
+            .update(payload);
         return response;
     }
-    async deleteUser(payload) {
-        const response = await connection_1.default('user').where('id', payload.id).delete();
+    async deleteUser(id) {
+        const response = await connection_1.default('user')
+            .where('id', id)
+            .delete();
         return response;
     }
     async putMoneyQuantity(payload, id) {
-        const response = await connection_1.default('user').where('id', id).update(payload);
+        const response = await connection_1.default('user')
+            .where('id', id)
+            .update(payload);
         return response;
     }
 };

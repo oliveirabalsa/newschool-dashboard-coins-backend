@@ -12,8 +12,8 @@ import {
   Query,
 } from '@nestjs/common';
 import { UserDto } from './DTO/user-module.dto';
+import { TransactionDto } from './DTO/user-module.dto';
 import UserModuleService from './user-module.service';
-import { query } from 'express';
 @Controller('user')
 export class UserModuleController {
   @Get()
@@ -22,8 +22,22 @@ export class UserModuleController {
   }
 
   @Get('transactions/:id')
-  getTransactions(@Param() Params: any, @Query() query: any) {
-    return UserModuleService.getTransactions(Params.id, query);
+  getTransactionsById(@Param() params: any, @Query() start: any, end: any) {
+    return UserModuleService.getTransactions(params.id, start, end);
+  }
+
+  @Post('/transactions')
+  postTransactions(@Body() transaction: TransactionDto) {
+    return UserModuleService.postTransactions(transaction);
+  }
+
+  @Put('transactions/:id')
+  updateTransactions(@Body() transaction: TransactionDto, @Param() params: any) {
+    return UserModuleService.putTransactions(params.id, transaction);
+  }
+  @Delete('transactions/:id')
+  deleteTransactions(@Param() Params: any) {
+    return UserModuleService.deleteTransactions(Params.id);
   }
 
   @Get('money/:id')
@@ -36,11 +50,6 @@ export class UserModuleController {
     return UserModuleService.postUser(User);
   }
   
-  @Get('money/:id')
-  getMoney(@Param() params) {
-    return UserModuleService.getMoney(params.id);
-  }
-
   @Put(':id')
   update(@Param() params, @Body() User: UserDto) {
     return UserModuleService.putUser(User, params.id);

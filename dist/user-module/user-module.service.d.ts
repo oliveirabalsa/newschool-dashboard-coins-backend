@@ -1,10 +1,13 @@
 declare class UserModuleService {
-    getUser(): Promise<any>;
-    getTransactions(id: any, query: any): Promise<any>;
+    getUser(page?: number): Promise<any>;
+    getTransactions(id: any, start: any, end: any): Promise<any>;
+    postTransactions(payload: any): Promise<any>;
+    putTransactions(id: any, payload: any): Promise<any>;
+    deleteTransactions(id: any): Promise<any>;
     getMoney(id: any): Promise<any>;
     postUser(payload: any): Promise<any>;
     putUser(payload: any, id: any): Promise<any>;
-    deleteUser(payload: any): Promise<any>;
+    deleteUser(id: any): Promise<any>;
     putMoneyQuantity(payload: any, id: any): Promise<any>;
 }
 declare const _default: UserModuleService;

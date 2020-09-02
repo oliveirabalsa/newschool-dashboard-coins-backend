@@ -1,6 +1,24 @@
-import { IsNotEmpty, IsString, IsArray } from 'class-validator';
+import { IsNotEmpty, IsString, IsArray, IsDateString } from 'class-validator';
 
 /* eslint-disable import/prefer-default-export */
+export class TransactionDto {
+  @IsNotEmpty()
+  @IsDateString()
+  date: string;
+
+  @IsNotEmpty()
+  @IsString()
+  quantity: string;
+  
+  @IsNotEmpty()
+  @IsString()
+  admin: string;
+  
+  @IsNotEmpty()
+  @IsString()
+  user_id: string;
+}
+
 export class UserDto {
   @IsNotEmpty()
   @IsString()
@@ -13,7 +31,4 @@ export class UserDto {
   @IsNotEmpty()
   @IsString()
   type: string;
-
-  @IsArray()
-  transactions: string;
 }
