@@ -21,6 +21,11 @@ class UserModuleService {
     return response;
   }
 
+  async getMoney(id){
+    return await connection('user').select('user.moneyQuantity').where('id', id)
+    
+  }
+
   async postUser(payload) {
     const response = await connection('user').returning('*').insert(payload);
     return response;

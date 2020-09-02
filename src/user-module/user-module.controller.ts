@@ -19,6 +19,11 @@ export class UserModuleController {
     return UserModuleService.getTransactions(Params.id, query);
   }
 
+  @Get('money/:id')
+  getMoney(@Param() Params: any ) {
+    return UserModuleService.getMoney(Params.id);
+  }
+
   @Post()
   create(@Body() User: UserDto) {
     return UserModuleService.postUser(User);
