@@ -16,33 +16,44 @@ class UserModuleService {
   }
 
   async getTransactions(id, query) {
-    const response = await connection('user').where('id', id)
-    .where('id', '>=', query.start).where('id', '<=', query.end).select('*');
+    const response = await connection('user')
+      .where('id', id)
+      .where('id', '>=', query.start)
+      .where('id', '<=', query.end)
+      .select('user.transactions');
     return response;
   }
-
-  async getMoney(id){
-    return await connection('user').select('user.moneyQuantity').where('id', id)
-    
+  async getMoney(id) {
+    return await connection('user')
+      .select('user.moneyQuantity')
+      .where('id', id);  
   }
 
   async postUser(payload) {
-    const response = await connection('user').returning('*').insert(payload);
+    const response = await connection('user')
+      .returning('*')
+      .insert(payload);
     return response;
   }
 
   async putUser(payload, id) {
-    const response = await connection('user').where('id', id).update(payload);
+    const response = await connection('user')
+      .where('id', id)
+      .update(payload);
     return response;
   }
 
   async deleteUser(payload) {
-    const response = await connection('user').where('id', payload.id).delete();
+    const response = await connection('user')
+      .where('id', payload.id)
+      .delete();
     return response;
   }
 
   async putMoneyQuantity(payload, id) {
-    const response = await connection('user').where('id', id).update(payload);
+    const response = await connection('user')
+      .where('id', id)
+      .update(payload);
     return response;
   }
 }

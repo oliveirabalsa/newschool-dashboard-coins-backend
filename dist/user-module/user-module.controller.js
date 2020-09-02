@@ -29,6 +29,9 @@ let UserModuleController = class UserModuleController {
     create(User) {
         return user_module_service_1.default.postUser(User);
     }
+    getMoney(params) {
+        return user_module_service_1.default.getMoney(params.id);
+    }
     update(params, User) {
         return user_module_service_1.default.putUser(User, params.id);
     }
@@ -66,6 +69,13 @@ __decorate([
     __metadata("design:paramtypes", [user_module_dto_1.UserDto]),
     __metadata("design:returntype", void 0)
 ], UserModuleController.prototype, "create", null);
+__decorate([
+    common_1.Get('money/:id'),
+    __param(0, common_1.Param()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], UserModuleController.prototype, "getMoney", null);
 __decorate([
     common_1.Put(':id'),
     __param(0, common_1.Param()), __param(1, common_1.Body()),

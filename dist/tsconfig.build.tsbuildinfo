@@ -1799,7 +1799,6 @@
       "../src/user-module/user-module.service.ts": {
         "version": "f50417afacc1cb0077eccb4b5d4d40d64c77b843bf8869cf64de5163e4bcd29f",
         "signature": "2f7b1d8673fc2e1d043eb80080d13692a634a25fc7067060c3885966233ff9db",
-
         "version": "bc5d99a5bd27abe47e0fda6259cefde006dc7dce9b211ea9be7b65959686d67b",
         "signature": "1c4a2c741177ed4ffe1e485b989fe9969a6ca0013f2ffa2880d0861fe6c881a0",
         "affectsGlobalScope": false
@@ -2337,6 +2336,8 @@
         "affectsGlobalScope": false
       },
       "../src/user-module/user-module.controller.ts": {
+        "version": "4d05099041888faa71b8d15cd8fa3eee624fcd946e792469ddd6732b3147c44c",
+        "signature": "5cb64865f7d282bb84e33d488129450f621ac7cd35435ef9d9a013059bf58f4e",
         "version": "55d040793bcc9f77d133e82a4825eca78764140e4a4eae6b1052a00fa15cfcc4",
         "signature": "21ec54b57b93a68b4e1fdf08b79cee9c67a4cf4b6ba7822e1d232698bbd164e6",
         "affectsGlobalScope": false
