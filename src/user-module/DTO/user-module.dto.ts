@@ -14,7 +14,6 @@ export class UserDto {
   @IsString()
   type: string;
 
-  @IsNotEmpty()
   @IsArray()
   transactions: string;
 }

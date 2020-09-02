@@ -4,7 +4,7 @@ exports.up = async function (knex) {
         table.string('moneyQuantity').notNull();
         table.string('name').notNull();
         table.string('type').notNull();
-        table.string('transactions').notNull();
+        table.string('transactions').nullable();
     });
 };
 exports.down = (knex) => knex.schema.dropTableIfExists('user');
