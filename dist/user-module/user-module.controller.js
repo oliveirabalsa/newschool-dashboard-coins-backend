@@ -23,6 +23,9 @@ let UserModuleController = class UserModuleController {
     getTransactions(Params, query) {
         return user_module_service_1.default.getTransactions(Params.id, query);
     }
+    getMoney(Params) {
+        return user_module_service_1.default.getMoney(Params.id);
+    }
     create(User) {
         return user_module_service_1.default.postUser(User);
     }
@@ -52,6 +55,13 @@ __decorate([
     __metadata("design:paramtypes", [Object, Object]),
     __metadata("design:returntype", void 0)
 ], UserModuleController.prototype, "getTransactions", null);
+__decorate([
+    common_1.Get('money/:id'),
+    __param(0, common_1.Param()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], UserModuleController.prototype, "getMoney", null);
 __decorate([
     common_1.Post(),
     __param(0, common_1.Body()),

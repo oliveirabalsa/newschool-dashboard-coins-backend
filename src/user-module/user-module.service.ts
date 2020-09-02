@@ -6,8 +6,12 @@ import connection from '../database/connection';
 @Injectable()
 class UserModuleService {
   // connect with database
-  async getUser() {
-    const response = await connection('user').select('*');
+  async getUser(page: number = 1) {
+    const response = await connection('user')
+      .limit(10)
+      .offset((page - 1) * 10)
+      .select('*')
+      .orderBy('id');
     return response;
   }
 
@@ -19,11 +23,10 @@ class UserModuleService {
       .select('user.transactions');
     return response;
   }
-
   async getMoney(id) {
     return await connection('user')
       .select('user.moneyQuantity')
-      .where('id', id);
+      .where('id', id);  
   }
 
   async postUser(payload) {
