@@ -49,7 +49,11 @@ export class UserModuleController {
   create(@Body() User: UserDto) {
     return UserModuleService.postUser(User);
   }
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> 07b52ccaf898817f7c635e0984c939b1bc40db9d
   @Put(':id')
   update(@Param() params, @Body() User: UserDto) {
     return UserModuleService.putUser(User, params.id);

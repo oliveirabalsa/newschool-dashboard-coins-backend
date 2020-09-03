@@ -26,6 +26,10 @@ export class UserDto {
 
   @IsNotEmpty()
   @IsString()
+  email: string;
+
+  @IsNotEmpty()
+  @IsString()
   moneyQuantity: string;
 
   @IsNotEmpty()
