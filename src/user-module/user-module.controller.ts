@@ -35,11 +35,6 @@ export class UserModuleController {
   create(@Body() User: UserDto) {
     return UserModuleService.postUser(User);
   }
-  
-  @Get('money/:id')
-  getMoney(@Param() params) {
-    return UserModuleService.getMoney(params.id);
-  }
 
   @Put(':id')
   update(@Param() params, @Body() User: UserDto) {
