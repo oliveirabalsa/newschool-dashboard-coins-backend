@@ -1782,8 +1782,8 @@
         "affectsGlobalScope": false
       },
       "../src/user-module/DTO/user-module.dto.ts": {
-        "version": "ae844260da2b455ee1d6e9392ea89661fcdf9a3738b178e270f87b35463ce618",
-        "signature": "28fcc09c761084a8c62f882cf0158360da3b9800087c87886e419ae508816969",
+        "version": "832dad42275bfc56574cfc3b659f29b4de16114903ad6652c3cb2d04736df797",
+        "signature": "3f486d504b944b5a8b13bb1ccb4b5369a25f6b686072d1b35df01cf2206ccaaf",
         "affectsGlobalScope": false
       },
       "../src/database/connection.ts": {
@@ -1997,7 +1997,7 @@
         "affectsGlobalScope": false
       },
       "../src/database/migrations/00_users.ts": {
-        "version": "185f073b5e47c61bc2844eec72c329654af1d803f9d5db7debb0b0c860786f09",
+        "version": "0df554a1bbf4d7b04ba161f012e72d69ae2045cc73142e7dc30f73a339faa432",
         "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "affectsGlobalScope": true
       },
