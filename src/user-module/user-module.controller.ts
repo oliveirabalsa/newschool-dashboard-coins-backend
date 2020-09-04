@@ -17,8 +17,8 @@ import UserModuleService from './user-module.service';
 @Controller('user')
 export class UserModuleController {
   @Get()
-  get() {
-    return UserModuleService.getUser();
+  get(@Query() page: object) {
+    return UserModuleService.getUser(page);
   }
 
   @Get('transactions/:id')
@@ -57,7 +57,7 @@ export class UserModuleController {
 
   @Put('money/:id')
   updateMoneyQuantity(@Param() params, @Body() Money: any) {
-    return UserModuleService.putUser(Money, params.id);
+    return UserModuleService.updateMoneyQuantity(Money, params.id);
   }
 
   @Delete(':id')

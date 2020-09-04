@@ -18,8 +18,8 @@ const user_module_dto_1 = require("./DTO/user-module.dto");
 const user_module_dto_2 = require("./DTO/user-module.dto");
 const user_module_service_1 = require("./user-module.service");
 let UserModuleController = class UserModuleController {
-    get() {
-        return user_module_service_1.default.getUser();
+    get(page) {
+        return user_module_service_1.default.getUser(page);
     }
     getTransactionsById(params, start, end) {
         return user_module_service_1.default.getTransactions(params.id, start, end);
@@ -43,7 +43,7 @@ let UserModuleController = class UserModuleController {
         return user_module_service_1.default.putUser(User, params.id);
     }
     updateMoneyQuantity(params, Money) {
-        return user_module_service_1.default.putUser(Money, params.id);
+        return user_module_service_1.default.updateMoneyQuantity(Money, params.id);
     }
     delete(params) {
         return user_module_service_1.default.deleteUser(params.id);
@@ -51,8 +51,9 @@ let UserModuleController = class UserModuleController {
 };
 __decorate([
     common_1.Get(),
+    __param(0, common_1.Query()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
+    __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], UserModuleController.prototype, "get", null);
 __decorate([

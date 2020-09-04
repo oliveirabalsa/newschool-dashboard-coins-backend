@@ -1,5 +1,5 @@
 declare class UserModuleService {
-    getUser(page?: number): Promise<any>;
+    getUser(payload: any): Promise<any>;
     getTransactions(id: any, start: any, end: any): Promise<any>;
     postTransactions(payload: any): Promise<any>;
     putTransactions(id: any, payload: any): Promise<any>;
@@ -8,7 +8,7 @@ declare class UserModuleService {
     postUser(payload: any): Promise<any>;
     putUser(payload: any, id: any): Promise<any>;
     deleteUser(id: any): Promise<any>;
-    putMoneyQuantity(payload: any, id: any): Promise<any>;
+    updateMoneyQuantity(payload: any, id: any): Promise<any>;
 }
 declare const _default: UserModuleService;
 export default _default;

@@ -6,13 +6,21 @@ import connection from '../database/connection';
 @Injectable()
 class UserModuleService {
   // connect with database
-  async getUser(page: number = 1) {
-    const response = await connection('user')
-      .limit(10)
-      .offset((page - 1) * 10)
+  async getUser(payload: any) {
+    const { page } = payload;
+    let response;
+    if (page >= 1) {
+      response = await connection('user')
+        .limit(10)
+        .offset((page - 1) * 10)
+        .select('*')
+        .orderBy('id');
+      return response;
+    }
+    response = await connection('user')
       .select('*')
       .orderBy('id');
-    return response;
+    return response
   }
 
   async getTransactions(id, start, end) {
@@ -27,6 +35,11 @@ class UserModuleService {
     const response = await connection('transactions')
       .insert(payload)
       .returning('*')
+
+    payload.moneyQuantity = payload.quantity
+    delete payload.quantity
+    this.updateMoneyQuantity(payload, payload.user_id)
+    
     return response;
   }
 
@@ -70,10 +83,19 @@ class UserModuleService {
     return response;
   }
 
-  async putMoneyQuantity(payload, id) {
+  async updateMoneyQuantity(payload, id) {
+    const [userMoney] = await connection('user')
+      .where('id', id)
+      .select('moneyQuantity')
+
+    const moneySaved = Number(userMoney.moneyQuantity)
+    const moneyInputed = Number(payload.moneyQuantity);
+
     const response = await connection('user')
       .where('id', id)
-      .update(payload);
+      .update({ moneyQuantity: moneySaved + moneyInputed })
+      .returning('*')
+
     return response;
   }
 }

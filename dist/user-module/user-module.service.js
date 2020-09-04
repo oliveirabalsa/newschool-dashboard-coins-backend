@@ -9,10 +9,18 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const common_1 = require("@nestjs/common");
 const connection_1 = require("../database/connection");
 let UserModuleService = class UserModuleService {
-    async getUser(page = 1) {
-        const response = await connection_1.default('user')
-            .limit(10)
-            .offset((page - 1) * 10)
+    async getUser(payload) {
+        const { page } = payload;
+        let response;
+        if (page >= 1) {
+            response = await connection_1.default('user')
+                .limit(10)
+                .offset((page - 1) * 10)
+                .select('*')
+                .orderBy('id');
+            return response;
+        }
+        response = await connection_1.default('user')
             .select('*')
             .orderBy('id');
         return response;
@@ -28,6 +36,9 @@ let UserModuleService = class UserModuleService {
         const response = await connection_1.default('transactions')
             .insert(payload)
             .returning('*');
+        payload.moneyQuantity = payload.quantity;
+        delete payload.quantity;
+        this.updateMoneyQuantity(payload, payload.user_id);
         return response;
     }
     async putTransactions(id, payload) {
@@ -65,10 +76,16 @@ let UserModuleService = class UserModuleService {
             .delete();
         return response;
     }
-    async putMoneyQuantity(payload, id) {
+    async updateMoneyQuantity(payload, id) {
+        const [userMoney] = await connection_1.default('user')
+            .where('id', id)
+            .select('moneyQuantity');
+        const moneySaved = Number(userMoney.moneyQuantity);
+        const moneyInputed = Number(payload.moneyQuantity);
         const response = await connection_1.default('user')
             .where('id', id)
-            .update(payload);
+            .update({ moneyQuantity: moneySaved + moneyInputed })
+            .returning('*');
         return response;
     }
 };
