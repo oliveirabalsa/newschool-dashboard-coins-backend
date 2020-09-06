@@ -21,8 +21,11 @@ let UserModuleController = class UserModuleController {
     get(page) {
         return user_module_service_1.default.getUser(page);
     }
-    getTransactionsById(params, start, end) {
-        return user_module_service_1.default.getTransactions(params.id, start, end);
+    getTransactionsById(params, query) {
+        return user_module_service_1.default.getTransactionsById(params.id, query);
+    }
+    getTransactions(query) {
+        return user_module_service_1.default.getTransactions(query);
     }
     postTransactions(transaction) {
         return user_module_service_1.default.postTransactions(transaction);
@@ -60,9 +63,16 @@ __decorate([
     common_1.Get('transactions/:id'),
     __param(0, common_1.Param()), __param(1, common_1.Query()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object, Object, Object]),
+    __metadata("design:paramtypes", [Object, Object]),
     __metadata("design:returntype", void 0)
 ], UserModuleController.prototype, "getTransactionsById", null);
+__decorate([
+    common_1.Get('transactions'),
+    __param(0, common_1.Query()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], UserModuleController.prototype, "getTransactions", null);
 __decorate([
     common_1.Post('/transactions'),
     __param(0, common_1.Body()),

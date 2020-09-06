@@ -25,11 +25,28 @@ let UserModuleService = class UserModuleService {
             .orderBy('id');
         return response;
     }
-    async getTransactions(id, start, end) {
+    async getTransactionsById(id, query) {
+        if (query.start && query.end) {
+            const response = await connection_1.default('transactions')
+                .where('user_id', id)
+                .limit(50)
+                .where('date', '>=', new Date(query.start))
+                .where('date', '<', new Date(query.end));
+            return response;
+        }
         const response = await connection_1.default('transactions')
             .where('user_id', id)
-            .limit(50)
-            .offset(Number(end) - Number(start));
+            .limit(50);
+        return response;
+    }
+    async getTransactions(query) {
+        if (query.start && query.end) {
+            const response = await connection_1.default('transactions')
+                .where('date', '>=', new Date(query.start))
+                .where('date', '<', new Date(query.end));
+            return response;
+        }
+        const response = await connection_1.default('transactions');
         return response;
     }
     async postTransactions(payload) {

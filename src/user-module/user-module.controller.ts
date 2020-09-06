@@ -22,8 +22,13 @@ export class UserModuleController {
   }
 
   @Get('transactions/:id')
-  getTransactionsById(@Param() params: any, @Query() start: any, end: any) {
-    return UserModuleService.getTransactions(params.id, start, end);
+  getTransactionsById(@Param() params: any, @Query() query: any) {
+    return UserModuleService.getTransactionsById(params.id, query);
+  }
+
+  @Get('transactions')
+  getTransactions(@Query() query: any) {
+    return UserModuleService.getTransactions(query);
   }
 
   @Post('/transactions')

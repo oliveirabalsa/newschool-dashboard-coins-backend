@@ -2,7 +2,8 @@ import { UserDto } from './DTO/user-module.dto';
 import { TransactionDto } from './DTO/user-module.dto';
 export declare class UserModuleController {
     get(page: object): Promise<any>;
-    getTransactionsById(params: any, start: any, end: any): Promise<any>;
+    getTransactionsById(params: any, query: any): Promise<any>;
+    getTransactions(query: any): Promise<any>;
     postTransactions(transaction: TransactionDto): Promise<any>;
     updateTransactions(transaction: TransactionDto, params: any): Promise<any>;
     deleteTransactions(Params: any): Promise<any>;

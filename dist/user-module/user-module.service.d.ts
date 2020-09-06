@@ -1,6 +1,7 @@
 declare class UserModuleService {
     getUser(payload: any): Promise<any>;
-    getTransactions(id: any, start: any, end: any): Promise<any>;
+    getTransactionsById(id: any, query: any): Promise<any>;
+    getTransactions(query: any): Promise<any>;
     postTransactions(payload: any): Promise<any>;
     putTransactions(id: any, payload: any): Promise<any>;
     deleteTransactions(id: any): Promise<any>;
