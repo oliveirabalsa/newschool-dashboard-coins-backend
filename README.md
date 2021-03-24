@@ -70,7 +70,7 @@ $ npm run test:cov
 
 ## Guide
 Controller
-- Receber a request e controlar o fluxo
+- Receber a request e controlar o fluxo do app
 
 Service
 - Regras / logicas do fluxo
